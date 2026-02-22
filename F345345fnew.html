@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script>
+    // extract patient_id from filename and video_id from folder
+    var path = window.location.pathname; // gets "/html_tracking_test/html_tracking/video_1/001"
+    var parts = path.split('/');
+    var videoId = parts[parts.length - 2]; // "video_1"
+    var patientId = parts[parts.length - 1]; // "001"
+    
+    var url = "https://script.google.com/macros/s/AKfycbzUxCuWTwRFDgEtPEPZYrY0jJ5C4EtxrDMWdr0dNbW2CK9PHsy59R7j3ZOE1licCS2h/exec" +
+              "?patient_id=" + patientId + "&video_id=" + videoId;
+    
+    fetch(url)
+      .then(() => {
+        window.location.href = "https://www.heart.org/";
+      })
+      .catch(() => {
+        window.location.href = "https://www.heart.org/";
+      });
+  </script>
+</head>
+<body>
+  Please wait, loading video...
+</body>
+</html>
